@@ -114,19 +114,21 @@
 		playerScore = 0;
 		computerScore = 0;
 		
+		alert("Let's play Rock, Paper, Scissors! \nYou will play against the computer in a best of 5 match. \nGood Luck!");
+		
 		while(round < 6 && playerScore < 3 && computerScore < 3)
 		{
 			playRound(playerPlay(), computerPlay());
 		}
 		decideWinner(playerScore, computerScore);
 		if(winner === "player"){
-			console.log("CONGRATULATIONS!!! You won! \nThe final score was " + playerScore + " - " + computerScore + ". \nYou are a Rock, Paper, Scissors master!");
+			alert("CONGRATULATIONS!!! You won! \nThe final score was " + playerScore + " - " + computerScore + ". \nYou are a Rock, Paper, Scissors master!");
 		}
 		else if(winner === "computer"){
-			console.log("Oh no... Sorry you lost. \nThe final score was " + playerScore + " - " + computerScore + ". \nMaybe you should practice more.");
+			alert("Oh no... Sorry you lost. \nThe final score was " + playerScore + " - " + computerScore + ". \nMaybe you should practice more.");
 		}
 		else if(winner === "tie"){
-			console.log("Wow! It's a tie!. \nThe final score was " + playerScore + " - " + computerScore + ". \nAre you sure you're not a robot?");
+			alert("Wow! It's a tie!. \nThe final score was " + playerScore + " - " + computerScore + ". \nAre you sure you're not a robot?");
 		}
 	}
   </script>

@@ -1,0 +1,101 @@
+body{
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.mainHeader{
+    background-color: lightgray;
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin: 0;
+    border-bottom: solid 1px black;
+    width: 100%;
+    font-family: 'Raleway', sans-serif;
+}
+
+#ui{
+    text-align: center;
+}
+
+button{
+    font-size: 15px;
+    border: none;
+    background-color: grey;
+    margin: 0 5px 0 5px;
+    padding: 5px 10px 5px 10px;
+    border-radius: 20px;
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+button:hover{
+    background-color: darkgray;
+}
+
+button:focus{
+    outline: none;
+    border:solid 1px black;
+    border-radius: 20px;
+}
+
+#rock, #paper, #scissors{
+    width: 100px;
+    margin: 10px 10px 0 10px;
+    display: inline-block;
+}
+
+#rock:hover, #paper:hover, #scissors:hover{
+    width: 110px;
+    margin: 0 5px;
+}
+
+#roundOutput{
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin: 20px 20px;
+}
+
+#computerArea, #playerArea{
+    display: inline-block;
+    text-align: center;
+    width: 40%;
+    height: 300px;
+    border: none;
+    border-radius: 20px;
+    -webkit-box-shadow: 0px 0px 23px -4px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 23px -4px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 23px -4px rgba(0,0,0,0.75);
+}
+
+#resultArea{
+    display: inline-block;
+    text-align: center;
+    width: 20%;
+    padding: 0px 10px;
+}
+
+.resultRound{
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin: 20px 0px;
+}
+
+.resultChoice, .resultRoundNum{
+    display: inline-block;
+    width: 33.333333%;
+}
+
+
+#playerChoice, #computerChoice{
+    height: 150px;
+}
+
+#rockPic, #paperPic, #scissorsPic{
+    max-width: 100%;
+    max-height: 100%;
+}

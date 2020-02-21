@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Page Title</title>
+  <meta charset="UTF-8"/>
+</head>
+<body>
+  <script>
+	let computerSelection = "Ready";
+	let playerSelection = "Ready";
+	let playerScore = 0;
+	let computerScore = 0;
+	let round = 1;
+	let winner = "none";
+
+	function computerPlay(){
+		let num = Math.floor(Math.random()*3);
+		if(num == 0){
+			return computerSelection = "rock";
+		}
+		else if(num == 1){
+			return computerSelection = "scissors";
+		}
+		else if(num == 2){
+			return computerSelection = "paper";
+		}
+	}
+
+	function playerPlay(){
+		let ready = false;
+		let input = (prompt("Round " + round + "\n\nChoose your weapon! \nPlease enter 'Rock', 'Paper' or 'Scissors'"));	
+		while(ready === false){
+			input = input.toLowerCase();
+			if(input == 'rock' || input == 'paper' || input == 'scissors'){
+				return playerSelection = input;
+				ready = true;
+			}
+			else{
+				input = prompt("ERROR \nPlease enter either 'Rock', 'Paper' or 'Scissors'");
+			}
+		}
+
+		console.log(input);	
+	}
+
+	function playRound(playerSelection, computerSelection){
+		if(playerSelection === computerSelection){
+			console.log("You attack with " + playerSelection + "!")
+			console.log("The Computer attacks with " + computerSelection + "!")
+			console.log("It's a tie!")
+		}
+		else{
+			if(playerSelection === 'rock'){
+				if(computerSelection ==='paper'){
+					console.log("You attack with " + playerSelection + "!")
+					console.log("The Computer attacks with " + computerSelection + "!")
+					console.log("The Computer wins!")
+					computerScore++;	
+				}
+				else if(computerSelection ==='scissors'){
+					console.log("You attack with " + playerSelection + "!")
+					console.log("The Computer attacks with " + computerSelection + "!")
+					console.log("You win!")	
+					playerScore++;
+				}
+			}
+			else if(playerSelection === 'paper'){
+				if(computerSelection ==='scissors'){
+					console.log("You attack with " + playerSelection + "!")
+					console.log("The Computer attacks with " + computerSelection + "!")
+					console.log("The Computer wins!")
+					computerScore++;	
+				}
+				else if(computerSelection ==='rock'){
+					console.log("You attack with " + playerSelection + "!")
+					console.log("The Computer attacks with " + computerSelection + "!")
+					console.log("You win!")	
+					playerScore++;
+				}
+			}
+			else if(playerSelection === 'scissors'){
+				if(computerSelection ==='rock'){
+					console.log("You attack with " + playerSelection + "!")
+					console.log("The Computer attacks with " + computerSelection + "!")
+					console.log("The Computer wins!")
+					computerScore++;	
+				}
+				else if(computerSelection ==='paper'){
+					console.log("You attack with " + playerSelection + "!")
+					console.log("The Computer attacks with " + computerSelection + "!")
+					console.log("You win!")	
+					playerScore++;
+				}				
+			}
+		}
+		console.log("The score is " + playerScore + " - " + computerScore + ".");
+		round++;
+	}
+
+	function decideWinner(playerScore, computerScore){
+		if(playerScore > computerScore){
+			return winner = "player";
+		}
+		else if(playerScore < computerScore){
+			return winner = "computer";
+		}
+		else{
+			return winner = "tie";
+		}
+	}
+
+	function game(){
+		round = 1;
+		playerScore = 0;
+		computerScore = 0;
+		
+		alert("Let's play Rock, Paper, Scissors! \nYou will play against the computer in a best of 5 match. \nGood Luck!");
+		
+		while(round < 6 && playerScore < 3 && computerScore < 3)
+		{
+			playRound(playerPlay(), computerPlay());
+		}
+		decideWinner(playerScore, computerScore);
+		if(winner === "player"){
+			alert("CONGRATULATIONS!!! You won! \nThe final score was " + playerScore + " - " + computerScore + ". \nYou are a Rock, Paper, Scissors master!");
+		}
+		else if(winner === "computer"){
+			alert("Oh no... Sorry you lost. \nThe final score was " + playerScore + " - " + computerScore + ". \nMaybe you should practice more.");
+		}
+		else if(winner === "tie"){
+			alert("Wow! It's a tie!. \nThe final score was " + playerScore + " - " + computerScore + ". \nAre you sure you're not a robot?");
+		}
+	}
+  </script>
+</body>
+</html>

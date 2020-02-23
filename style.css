@@ -90,11 +90,14 @@ button:focus{
     width: 33.333333%;
 }
 
+.resultChoice{
+    border: solid 1px black;
+    border-radius: 100px;
+}
+
 
 #playerChoice, #computerChoice{
     height: 150px;
-    border: solid 1px black;
-    border-radius: 100px;
 }
 
 #rockPic, #paperPic, #scissorsPic{

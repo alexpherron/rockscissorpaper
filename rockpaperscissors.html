@@ -44,17 +44,17 @@
 			if(i===0){
 				btn.id = 'rock';
 				btn.alt = "Rock";
-				btn.src = "rock.png";
+				btn.src = "images/rock.png";
 			}
 			else if(i===1){
 				btn.id = 'paper';
 				btn.alt = "Paper";
-				btn.src = "paper.png";
+				btn.src = "images/paper.png";
 			}
 			else if(i===2){
 				btn.id = 'scissors';
 				btn.alt = "Scissors";
-				btn.src = "scissors.png";
+				btn.src = "images/scissors.png";
 			}
 			ui.appendChild(btn);
 		}
@@ -159,9 +159,9 @@
 		var resultComputer = document.getElementById("resultComputer"+roundNum);
 		var resultDescription = document.getElementById("resultDescription");
 
-		var rockPic = '<img src="rock.png" alt="Rock" id="rockPic">';
-		var paperPic = '<img src = "paper.png" alt="Paper" id="paperPic">';
-		var scissorsPic = '<img src = "scissors.png" alt="Scissors" id="scissorsPic">';
+		var rockPic = '<img src="images/rock.png" alt="Rock" id="rockPic">';
+		var paperPic = '<img src = "images/paper.png" alt="Paper" id="paperPic">';
+		var scissorsPic = '<img src = "images/scissors.png" alt="Scissors" id="scissorsPic">';
 		//Compares the selections and prints an appropriate message to the results.
 			if(playerSelection === 'rock'){
 				playerChoice.innerHTML = rockPic;

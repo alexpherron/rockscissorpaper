@@ -1,106 +1,187 @@
+html{
+    height: 100%;
+}
+
 body{
     font-family: 'Roboto', sans-serif;
+    color: white;
+    background-color: #283561;
     margin: 0;
     padding: 0;
+    height: 100%;
 }
-
+/*Header Area*/
 .mainHeader{
-    background-color: lightgray;
+    background-color: white;
     text-align: center;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    padding-top: 20px;
+    padding-bottom: 20px;
     margin: 0;
-    border-bottom: solid 1px black;
     width: 100%;
-    font-family: 'Raleway', sans-serif;
+    font-family: 'Rammetto One', sans-serif;
+    font-size: 50px;
+    color:#283561;
 }
-
+/*UI Area*/
 #ui{
     text-align: center;
 }
 
+
+h2{
+    font-family: 'Courier New', sans-serif;
+    color: #ffd23d;
+}
+
 button{
-    font-size: 15px;
-    border: none;
-    background-color: grey;
+    font-family: 'Courier New';
+    font-size: 20px;
+    font-weight: bold;
+    background-color: #5374e6;
     margin: 0 5px 0 5px;
     padding: 5px 10px 5px 10px;
+    border: none;
     border-radius: 20px;
     color: white;
-    font-weight: bold;
     text-decoration: none;
+    transition: background 1s;
 }
 
 button:hover{
-    background-color: darkgray;
+    transform: scale(1.1);
+    background-color: #ffd23d;
+    border-radius: 35px;
 }
 
 button:focus{
     outline: none;
-    border:solid 1px black;
-    border-radius: 20px;
+    background-color: #ffd23d;
+    border-radius: 35px;
 }
 
 #rock, #paper, #scissors{
     width: 100px;
     margin: 10px 10px 0 10px;
     display: inline-block;
+    background-color: #5374e6;
+    border-radius: 200px;
+    transition: background 1s;
 }
 
 #rock:hover, #paper:hover, #scissors:hover{
-    width: 110px;
-    margin: 0 5px;
+    transform: scale(1.1);
+    border-radius:200px;
+    background-color: #ffd23d;
 }
 
+#rock:focus, #paper:focus, #scissors:focus{
+    outline: none;
+    background-color: #ffd23d;
+    border-radius: 200px;
+}
+/*Result Area*/
 #roundOutput{
     display: flex;
     align-items: center;
     text-align: center;
     margin: 20px 20px;
+    height: 350px;
 }
 
 #computerArea, #playerArea{
     display: inline-block;
     text-align: center;
-    width: 40%;
-    height: 300px;
+    max-width: 250px;
+    width: 35%;
+
     border: none;
     border-radius: 20px;
+    background-color: white;
+    color: #283561;
     -webkit-box-shadow: 0px 0px 23px -4px rgba(0,0,0,0.75);
     -moz-box-shadow: 0px 0px 23px -4px rgba(0,0,0,0.75);
-    box-shadow: 0px 0px 23px -4px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 13px -4px rgba(0,0,0,0.75);
+}
+
+#computerArea{
+    margin: 0px auto auto 20px;
+    padding: 10px;
+}
+
+#playerArea{
+    margin: 0px 20px auto auto;
+    padding: 10px;
+}
+
+.displayHeader{
+    color: #283561;
+    margin: 0;
+}
+
+.scoreArea{
+    color: #283561;
+    margin: 0 0 10px 0;
+    font-size: 40px;
+}
+
+#playerChoice, #computerChoice{
+    height: 200px;
+}
+
+#playerChoice{
+    transform: scaleX(-1);
+}
+
+#playerChoicePic, #computerChoicePic{
+    width: 200px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
 }
 
 #resultArea{
     display: inline-block;
     text-align: center;
-    width: 20%;
-    padding: 0px 10px;
+    width: 30%;
+    max-width: 230px;
 }
 
 .resultRound{
     display: flex;
     align-items: center;
     text-align: center;
-    margin: 20px 0px;
+    margin: 5px 0px;
+    height: 20%;
 }
 
-.resultChoice, .resultRoundNum{
+.resultRoundNum{
     display: inline-block;
-    width: 33.333333%;
+    width: 70px;
+    padding: 4px 0;
 }
 
-.resultChoice{
-    border: solid 1px black;
-    border-radius: 100px;
+.resultComputerChoice{
+    display: inline-block;
+    width: 50%;
+    font-family: 'Rammetto One', sans-serif;
+    text-align: left;
 }
 
-
-#playerChoice, #computerChoice{
-    height: 150px;
+.resultPlayerChoice{
+    display: inline-block;
+    width: 50%;
+    font-family: 'Rammetto One', sans-serif;
+    text-align: right;
 }
 
-#rockPic, #paperPic, #scissorsPic{
-    max-width: 100%;
-    max-height: 100%;
-}
+/* If the screen size is 601px wide or more, set the font-size of <div> to 80px */
+@media screen and (min-width: 601px) {
+    
+  }
+  
+  /* If the screen size is 600px wide or less, set the font-size of <div> to 30px */
+  @media screen and (max-width: 600px) {
+    #resultArea{
+        display: none;
+    }
+  }

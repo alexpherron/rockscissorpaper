@@ -2,10 +2,14 @@
 <html>
 <head>
 	<link rel="stylesheet" type="text/css" href="style.css">
-	<link href="https://fonts.googleapis.com/css?family=Raleway:400,800&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Rammetto+One&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
   <title>Rock, Paper, Scissors</title>
   <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="HandheldFriendly" content="true">
 </head>
 <body>
 
@@ -75,6 +79,9 @@
 		var playerChoice = document.createElement('div');
 		playerChoice.id = "playerChoice";
 		playerChoice.className = "choice";
+		var playerChoicePic = document.createElement('img');
+		playerChoicePic.id = 'playerChoicePic';
+		playerChoice.appendChild(playerChoicePic);
 		playerArea.appendChild(playerHeader);
 		playerArea.appendChild(playerScoreArea);
 		playerArea.appendChild(playerChoice);
@@ -94,13 +101,20 @@
 		var computerChoice = document.createElement('div');
 		computerChoice.id = "computerChoice";
 		computerChoice.className = "choice";
+		var computerChoicePic = document.createElement('img');
+		computerChoicePic.id = 'computerChoicePic';
+		computerChoice.appendChild(computerChoicePic);
 		computerArea.appendChild(computerHeader);
 		computerArea.appendChild(computerScoreArea);
 		computerArea.appendChild(computerChoice);
-		
+
 		//Create the results Area.
 		var resultArea = document.createElement('div');
 		resultArea.id = "resultArea";
+		var resultDescription = document.createElement('p');
+		resultDescription.id = "resultDescription";
+		resultDescription.innerHTML = "Waiting..."
+		resultArea.appendChild(resultDescription);
 		var resultHeader = document.createElement('h3');
 		resultHeader.id = "resultHeader";
 		resultHeader.innerHTML = "Results";
@@ -111,22 +125,20 @@
 			resultRound.className = "resultRound";
 			var resultPlayer = document.createElement('div');
 			resultPlayer.id = "resultPlayer"+i;
-			resultPlayer.className = "resultChoice"
+			resultPlayer.className = "resultPlayerChoice"
 			var resultRoundNum = document.createElement('span');
 			resultRoundNum.id = "resultRoundNum" + i;
 			resultRoundNum.className = "resultRoundNum";
 			resultRoundNum.innerHTML = i;
 			var resultComputer = document.createElement('div');
 			resultComputer.id = "resultComputer"+i;
-			resultComputer.className = "resultChoice";
+			resultComputer.className = "resultComputerChoice";
 			resultRound.appendChild(resultPlayer);
 			resultRound.appendChild(resultRoundNum);
 			resultRound.appendChild(resultComputer);
 			resultArea.appendChild(resultRound);
 		}
-		var resultDescription = document.createElement('p');
-		resultDescription.id = "resultDescription";
-		resultArea.appendChild(resultDescription);
+		
 
 		//Append the three main areas.
 		roundOutput.appendChild(playerArea);
@@ -152,81 +164,93 @@
 		var playerArea = document.getElementById("playerArea");
 		var playerScoreArea = document.getElementById("playerScoreArea");
 		var playerChoice = document.getElementById("playerChoice");
+		var playerChoicePic = document.getElementById("playerChoicePic");
 		var computerArea = document.getElementById("computerArea");
 		var computerScoreArea = document.getElementById("computerScoreArea");
 		var computerChoice = document.getElementById("computerChoice");
+		var computerChoicePic = document.getElementById("computerChoicePic");
 		var resultPlayer = document.getElementById("resultPlayer"+roundNum);
 		var resultComputer = document.getElementById("resultComputer"+roundNum);
 		var resultDescription = document.getElementById("resultDescription");
+
+		
 
 		var rockPic = '<img src="images/rock.png" alt="Rock" id="rockPic">';
 		var paperPic = '<img src = "images/paper.png" alt="Paper" id="paperPic">';
 		var scissorsPic = '<img src = "images/scissors.png" alt="Scissors" id="scissorsPic">';
 		//Compares the selections and prints an appropriate message to the results.
 			if(playerSelection === 'rock'){
-				playerChoice.innerHTML = rockPic;
-				resultPlayer.innerHTML = "R";
+				playerChoicePic.src = "images/rock.png";
+				resultPlayer.innerHTML = "Rock";
 				if(computerSelection ==='paper'){
-					resultComputer.innerHTML = "P";
-					computerChoice.innerHTML = paperPic;
+					resultComputer.innerHTML = "Paper";
+					computerChoicePic.src = "images/paper.png";
+					//computerChoice.innerHTML = paperPic;
 
 					resultDescription.innerHTML = "<strong>Round "+roundNum+"</strong></br>The Computer wins!";
+					resultComputer.style = "color: #ffd23d;";
 					computerScore++;	
 				}
 				else if(computerSelection ==='scissors'){
-					resultComputer.innerHTML = "S";
-					computerChoice.innerHTML = scissorsPic;
+					resultComputer.innerHTML = "Scissors";
+					computerChoicePic.src = "images/scissors.png";
 					resultDescription.innerHTML = "<strong>Round "+roundNum+"</strong></br>You win!";
+					resultPlayer.style = "color: #ffd23d;";
 					playerScore++;
 				}
 				else if(computerSelection === 'rock'){
-					resultComputer.innerHTML = "R";
-					computerChoice.innerHTML = rockPic;
+					resultComputer.innerHTML = "Rock";
+					computerChoicePic.src = "images/rock.png";
 					resultDescription.innerHTML = "<strong>Round "+roundNum+"</strong></br>It's a tie!";
 				}
 			}
 			else if(playerSelection === 'paper'){
-				resultPlayer.innerHTML = "P";
-				playerChoice.innerHTML = paperPic;
+				resultPlayer.innerHTML = "Paper";
+				playerChoicePic.src = "images/paper.png";
 				if(computerSelection ==='scissors'){
-					resultComputer.innerHTML = "S";
-					computerChoice.innerHTML = scissorsPic;
+					resultComputer.innerHTML = "Scissors";
+					computerChoicePic.src = "images/scissors.png";
 					resultDescription.innerHTML = "<strong>Round "+roundNum+"</strong></br>The Computer wins!";
+					resultComputer.style = "color: #ffd23d;";
 					computerScore++;	
 				}
 				else if(computerSelection ==='rock'){
-					resultComputer.innerHTML = "R";
-					computerChoice.innerHTML = rockPic;
+					resultComputer.innerHTML = "Rock";
+					computerChoicePic.src = "images/rock.png";
 					resultDescription.innerHTML = "<strong>Round "+roundNum+"</strong></br>You win!";
+					resultPlayer.style = "color: #ffd23d;";
 					playerScore++;
 				}
 				else if(computerSelection === 'paper'){
-					resultComputer.innerHTML = "P";
-					computerChoice.innerHTML = paperPic;
+					resultComputer.innerHTML = "Paper";
+					computerChoicePic.src = "images/paper.png";
 					resultDescription.innerHTML = "<strong>Round "+roundNum+"</strong></br>It's a tie!";
 				}
 			}
 			else if(playerSelection === 'scissors'){
-				resultPlayer.innerHTML = "S";
-				playerChoice.innerHTML = scissorsPic;
+				resultPlayer.innerHTML = "Scissors";
+				playerChoicePic.src = "images/scissors.png";
 				if(computerSelection ==='rock'){
-					resultComputer.innerHTML = "R";
-					computerChoice.innerHTML = rockPic;
+					resultComputer.innerHTML = "Rock";
+					computerChoicePic.src = "images/rock.png";
 					resultDescription.innerHTML ="<strong>Round "+roundNum+"</strong></br>The Computer wins!";
+					resultComputer.style = "color: #ffd23d;";
 					computerScore++;	
 				}
 				else if(computerSelection ==='paper'){
-					resultComputer.innerHTML = "P";
-					computerChoice.innerHTML = paperPic;
+					resultComputer.innerHTML = "Paper";
+					computerChoicePic.src = "images/paper.png";
 					resultDescription.innerHTML = "<strong>Round "+roundNum+"</strong></br>You win!";
+					resultPlayer.style = "color: #ffd23d;";
 					playerScore++;
 				}				
 				else if(computerSelection === 'scissors'){
-					resultComputer.innerHTML = "S";
-					computerChoice.innerHTML = scissorsPic;
+					resultComputer.innerHTML = "Scissors";
+					computerChoicePic.src = "images/scissors.png";
 					resultDescription.innerHTML = "<strong>Round "+roundNum+"</strong></br>It's a tie!";
 				}
 			}
+
 		updateScore(playerScore, computerScore); //update the scoreboard
 
 		//Checking if the game is over or not.
